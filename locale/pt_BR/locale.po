@@ -1,0 +1,18 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2020-12-16T08:00:00+02:00\n"
+"PO-Revision-Date: 2020-12-16T08:00:00+02:00\n"
+"Language: Português\n"
+
+msgid "plugins.generic.plaudit.displayName"
+msgstr "Notificação de atualização de plugins"
+
+msgid "plugins.generic.plaudit.description"
+msgstr "Esse plugin adiciona o widget da Plaudit aos detalhes da submissão na parte pública do site"

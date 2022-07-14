@@ -21,8 +21,11 @@ class PlauditPlugin extends GenericPlugin {
         if (!Config::getVar('general', 'installed') || defined('RUNNING_UPGRADE'))
             return true;
         
-        // if ($success && $this->getEnabled($mainContextId)) {
-        // }
+        if ($success && $this->getEnabled($mainContextId)) {
+            HookRegistry::register('Templates::Preprint::Details', array($this, 'addToPreprintDetails'));
+            // HookRegistry::register('Templates::Article::Details', array($this, 'addSubmissionDisplay'));
+			// HookRegistry::register('Templates::Catalog::Book::Details', array($this, 'addSubmissionDisplay'));
+        }
         
         return $success;
     }
@@ -34,4 +37,13 @@ class PlauditPlugin extends GenericPlugin {
 	public function getDescription() {
 		return __('plugins.generic.plaudit.description');
 	}
+
+    public function addToPreprintDetails($hookName, $params) {
+        $templateMgr = $params[1];
+		$output =& $params[2];
+		
+        $output .= $templateMgr->fetch($this->getTemplateResource('plauditWidget.tpl'));
+        
+        return false;
+    }
 }

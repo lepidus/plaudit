@@ -12,7 +12,7 @@ msgstr ""
 "Language: Português\n"
 
 msgid "plugins.generic.plaudit.displayName"
-msgstr "Notificação de atualização de plugins"
+msgstr "Plaudit"
 
 msgid "plugins.generic.plaudit.description"
 msgstr "Esse plugin adiciona o widget da Plaudit aos detalhes da submissão na parte pública do site"

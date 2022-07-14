@@ -16,3 +16,6 @@ msgstr "Plaudit"
 
 msgid "plugins.generic.plaudit.description"
 msgstr "Esse plugin adiciona o widget da Plaudit aos detalhes da submissão na parte pública do site"
+
+msgid "plugins.generic.plaudit.integrationToken"
+msgstr "Token de integração"

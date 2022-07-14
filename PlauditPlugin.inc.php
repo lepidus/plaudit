@@ -42,8 +42,67 @@ class PlauditPlugin extends GenericPlugin {
         $templateMgr = $params[1];
 		$output =& $params[2];
 		
+		$request = Application::get()->getRequest();
+		$integrationToken = $this->getSetting($request->getContext()->getId(), 'integration_token');
+
+		$templateMgr->assign('integrationToken', $integrationToken);
         $output .= $templateMgr->fetch($this->getTemplateResource('plauditWidget.tpl'));
         
         return false;
+    }
+
+    public function getActions($request, $actionArgs) {
+		$actions = parent::getActions($request, $actionArgs);
+
+		if (!$this->getEnabled()) {
+			return $actions;
+		}
+
+		$router = $request->getRouter();
+		import('lib.pkp.classes.linkAction.request.AjaxModal');
+		$linkAction = new LinkAction(
+			'settings',
+			new AjaxModal(
+				$router->url(
+					$request,
+					null,
+					null,
+					'manage',
+					null,
+					array(
+						'verb' => 'settings',
+						'plugin' => $this->getName(),
+						'category' => 'generic'
+					)
+				),
+				$this->getDisplayName()
+			),
+			__('manager.plugins.settings'),
+			null
+		);
+
+		array_unshift($actions, $linkAction);
+
+		return $actions;
+	}
+    
+    public function manage($args, $request) {
+        switch($request->getUserVar('verb')) {
+			case 'settings':
+                $context = $request->getContext();
+                $this->import('form.PlauditSettingsForm');
+				$form = new PlauditSettingsForm($this, $context->getId());
+
+                if ($request->getUserVar('save')) {
+                    $form->readInputData();
+                    $form->execute();
+
+                    return new JSONMessage(true);
+                }
+
+                return new JSONMessage(true, $form->fetch($request));
+            default:
+                return parent::manage($verb, $args, $message, $messageParams);
+        }
     }
 }

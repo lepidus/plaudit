@@ -93,16 +93,15 @@ class PlauditPlugin extends GenericPlugin {
                 $this->import('form.PlauditSettingsForm');
 				$form = new PlauditSettingsForm($this, $context->getId());
 
-                if ($request->getUserVar('save')) {
-                    $form->readInputData();
-					if($form->validate()){
+				if($request->getUserVar('save')) {
+					$form->readInputData();
+					if($form->validate()) {
 						$form->execute();
 						return new JSONMessage(true);
 					}
-                    return new JSONMessage(true);
-                }
-				
-                return new JSONMessage(true, $form->fetch($request));
+				}
+
+				return new JSONMessage(true, $form->fetch($request));
             default:
                 return parent::manage($verb, $args, $message, $messageParams);
         }

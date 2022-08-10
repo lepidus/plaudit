@@ -22,9 +22,9 @@ class PlauditPlugin extends GenericPlugin {
             return true;
         
         if ($success && $this->getEnabled($mainContextId)) {
-			HookRegistry::register('Templates::Preprint::Details', array($this, 'addSubmissionDisplay'));
-			HookRegistry::register('Templates::Catalog::Book::Details', array($this, 'addSubmissionDisplay'));
-			HookRegistry::register('Templates::Article::Details', array($this, 'addSubmissionDisplay'));
+			HookRegistry::register('Templates::Preprint::Details', array($this, 'addSubmissionDetails'));
+			HookRegistry::register('Templates::Catalog::Book::Details', array($this, 'addSubmissionDetails'));
+			HookRegistry::register('Templates::Article::Details', array($this, 'addSubmissionDetails'));
         }
         
         return $success;
@@ -38,7 +38,7 @@ class PlauditPlugin extends GenericPlugin {
 		return __('plugins.generic.plaudit.description');
 	}
 
-    public function addSubmissionDisplay($hookName, $params) {
+    public function addSubmissionDetails($hookName, $params) {
         $templateMgr = $params[1];
 		$output =& $params[2];
 		

@@ -7,6 +7,8 @@ This plugin adds the Plaudit widget to the submission details in the public site
 The latest release of this plugin is compatible with the following PKP applications:
 
 * OPS 3.3.0
+* OJS 3.3.0
+* OMP 3.3.0
 
 
 ## Plugin Download

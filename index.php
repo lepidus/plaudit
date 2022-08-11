@@ -13,10 +13,8 @@
  * @ingroup plugins_generic_plaudit
  * @brief Wrapper for plaudit plugin.
  *
- */ 
+ */
 
 require_once('PlauditPlugin.inc.php');
 
 return new PlauditPlugin();
-
-

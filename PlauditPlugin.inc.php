@@ -51,8 +51,10 @@ class PlauditPlugin extends GenericPlugin
         $request = Application::get()->getRequest();
         $integrationToken = $this->getSetting($request->getContext()->getId(), 'integration_token');
 
-        $templateMgr->assign('integrationToken', $integrationToken);
-        $output .= $templateMgr->fetch($this->getTemplateResource('plauditWidget.tpl'));
+        if ($integrationToken) {
+            $templateMgr->assign('integrationToken', $integrationToken);
+            $output .= $templateMgr->fetch($this->getTemplateResource('plauditWidget.tpl'));
+        }
 
         return false;
     }

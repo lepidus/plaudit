@@ -15,7 +15,10 @@ msgid "plugins.generic.plaudit.displayName"
 msgstr "Plaudit"
 
 msgid "plugins.generic.plaudit.description"
-msgstr "This plugin adds the Plaudit widget to the submission details in the public site"
+msgstr "This plugin adds the Plaudit widget to the submission details in the public site. <a href=\"https://github.com/lepidus/plaudit/blob/master/README.md#installation\" target=\"_blank\">The Integration Token is required.</a>"
 
 msgid "plugins.generic.plaudit.integrationToken"
 msgstr "Integration token"
+
+msgid "plugins.generic.plaudit.settings.description"
+msgstr "It is required to set the Plaudit integration token. See <a href=\"https://github.com/lepidus/plaudit/blob/master/README.md#installation\" target=\"_blank\">instructions</a> for details or contact your Plaudit administrator."

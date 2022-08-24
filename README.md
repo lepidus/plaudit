@@ -27,13 +27,16 @@ To download the plugin, go to the [Releases page](https://github.com/lepidus/pla
 ## Configure your Plaudit integration token
 
 1. After the plugin is installed and enabled, open the plugin settings:
-![plaudit-plugin-page](assets/plaudit-plugin-page.png)
+
+    ![plaudit-plugin-page](assets/plaudit-plugin-page.png)
 
 2. In the indicated field, paste your Plaudit integration token, and save the form.
-![plaudit-settings-page](assets/plaudit-settings-page.png)
+    
+    ![plaudit-settings-page](assets/plaudit-settings-page.png)
 
 3. All good! You should see the Plaudit widget in the submissions details.
-![plaudit-widget](assets/plaudit-widget.png)
+
+    ![plaudit-widget](assets/plaudit-widget.png)
 
 ## Obtaining an integration token
 

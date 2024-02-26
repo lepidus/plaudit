@@ -12,11 +12,15 @@
  * @brief Plaudit Plugin
  */
 
-namespace APP\plugins\generic\plaudits;
+namespace APP\plugins\generic\plaudit;
 
 use PKP\plugins\GenericPlugin;
 use APP\core\Application;
 use PKP\plugins\Hook;
+use PKP\linkAction\LinkAction;
+use PKP\linkAction\request\AjaxModal;
+use PKP\core\JSONMessage;
+use APP\plugins\generic\plaudit\form\PlauditSettingsForm;
 
 class PlauditPlugin extends GenericPlugin
 {
@@ -104,7 +108,6 @@ class PlauditPlugin extends GenericPlugin
         switch ($request->getUserVar('verb')) {
             case 'settings':
                 $context = $request->getContext();
-                $this->import('form.PlauditSettingsForm');
                 $form = new PlauditSettingsForm($this, $context->getId());
 
                 if ($request->getUserVar('save')) {

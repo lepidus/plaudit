@@ -1,26 +1,29 @@
 <?php
 
-import('lib.pkp.classes.form.Form');
+namespace APP\plugins\generic\plaudit\form;
+
+use PKP\form\Form;
+use APP\template\TemplateManager;
 
 class PlauditSettingsForm extends Form
 {
-    public $_contextId;
-    public $_plugin;
+    public $contextId;
+    public $plugin;
 
     public function __construct($plugin, $contextId)
     {
-        $this->_contextId = $contextId;
-        $this->_plugin = $plugin;
+        $this->contextId = $contextId;
+        $this->plugin = $plugin;
         parent::__construct($plugin->getTemplateResource('settings.tpl'));
     }
 
     public function fetch($request, $template = null, $display = false)
     {
-        $integrationToken = $this->_plugin->getSetting($this->_contextId, 'integration_token');
+        $integrationToken = $this->plugin->getSetting($this->contextId, 'integration_token');
 
         $templateMgr = TemplateManager::getManager($request);
         $templateMgr->assign(array(
-            'pluginName' => $this->_plugin->getName(),
+            'pluginName' => $this->plugin->getName(),
             'integrationToken' => $integrationToken,
         ));
 
@@ -37,7 +40,7 @@ class PlauditSettingsForm extends Form
         parent::execute(...$functionArgs);
 
         if (!is_null($this->getData('integrationToken'))) {
-            $this->_plugin->updateSetting($this->_contextId, 'integration_token', $this->getData('integrationToken'));
+            $this->plugin->updateSetting($this->contextId, 'integration_token', $this->getData('integrationToken'));
         }
     }
 }

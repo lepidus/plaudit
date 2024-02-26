@@ -8,9 +8,9 @@ An integration token is required in order for the plugin to work properly. [See 
 
 The latest release of this plugin is compatible with the following PKP applications:
 
-* OPS 3.3.0
-* OJS 3.3.0
-* OMP 3.3.0
+* OJS 3.4.0
+* OPS 3.4.0
+* OMP 3.4.0
 
 ## Installation
 
@@ -44,4 +44,4 @@ If you dont have one already, you can folow the [Plaudit instructions on how to 
 # License
 __This plugin is licensed under the GNU General Public License v3.0__
 
-__Copyright (c) 2022-2023 Lepidus Tecnologia__
+__Copyright (c) 2022-2024 Lepidus Tecnologia__

@@ -3,7 +3,7 @@
 /**
  * @file plugins/generic/plaudit/PlauditPlugin.inc.php
  *
- * Copyright (c) 2022 Lepidus Tecnologia
+ * Copyright (c) 2022 - 2024 Lepidus Tecnologia
  * Distributed under the GNU GPL v3. For full terms see LICENSE or https://www.gnu.org/licenses/gpl-3.0.txt.
  *
  * @class PlauditPlugin
@@ -12,7 +12,11 @@
  * @brief Plaudit Plugin
  */
 
-import('lib.pkp.classes.plugins.GenericPlugin');
+namespace APP\plugins\generic\plaudits;
+
+use PKP\plugins\GenericPlugin;
+use APP\core\Application;
+use PKP\plugins\Hook;
 
 class PlauditPlugin extends GenericPlugin
 {
@@ -20,14 +24,14 @@ class PlauditPlugin extends GenericPlugin
     {
         $success = parent::register($category, $path, $mainContextId);
 
-        if (!Config::getVar('general', 'installed') || defined('RUNNING_UPGRADE')) {
+        if (Application::isUnderMaintenance()) {
             return true;
         }
 
         if ($success && $this->getEnabled($mainContextId)) {
-            HookRegistry::register('Templates::Preprint::Details', array($this, 'addSubmissionDetails'));
-            HookRegistry::register('Templates::Catalog::Book::Details', array($this, 'addSubmissionDetails'));
-            HookRegistry::register('Templates::Article::Details', array($this, 'addSubmissionDetails'));
+            Hook::add('Templates::Preprint::Details', [$this, 'addSubmissionDetails']);
+            Hook::add('Templates::Catalog::Book::Details', [$this, 'addSubmissionDetails']);
+            Hook::add('Templates::Article::Details', [$this, 'addSubmissionDetails']);
         }
 
         return $success;
@@ -46,7 +50,7 @@ class PlauditPlugin extends GenericPlugin
     public function addSubmissionDetails($hookName, $params)
     {
         $templateMgr = $params[1];
-        $output =& $params[2];
+        $output = & $params[2];
 
         $request = Application::get()->getRequest();
         $integrationToken = $this->getSetting($request->getContext()->getId(), 'integration_token');

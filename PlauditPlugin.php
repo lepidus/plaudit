@@ -76,7 +76,7 @@ class PlauditPlugin extends GenericPlugin
         }
 
         $router = $request->getRouter();
-$linkAction = new LinkAction(
+        $linkAction = new LinkAction(
             'settings',
             new AjaxModal(
                 $router->url(

@@ -1,0 +1,14 @@
+msgid ""
+msgstr "Project-Id-Version: \\nReport-Msgid-Bugs-To: \\nPOT-Creation-Date: 2020-12-16T08:00:00+02:00\\nPO-Revision-Date: 2025-08-23T23:22:19Z\\nLast-Translator: \\nLanguage-Team: \\nLanguage: ar\\nMIME-Version: 1.0\\nContent-Type: text/plain; charset=UTF-8\\nContent-Transfer-Encoding: 8bit\\nPlural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 and n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\\n"
+
+msgid "plugins.generic.plaudit.displayName"
+msgstr "Plaudit"
+
+msgid "plugins.generic.plaudit.description"
+msgstr "تضيف هذه الإضافة ودجة Plaudit إلى صفحة تفاصيل الإرسال، مما يتيح للمستخدمين الإشادة بالمقالة علنًا (Plaudit). لمزيد من التفاصيل حول التهيئة، راجع تعليمات Plaudit. <a href=\"https://plaudit.pub/integration\" target=\"_blank\">مطلوب رمز التكامل (Integration Token).</a>"
+
+msgid "plugins.generic.plaudit.integrationToken"
+msgstr "رمز التكامل"
+
+msgid "plugins.generic.plaudit.settings.description"
+msgstr "يتوجب ضبط رمز تكامل Plaudit. راجع <a href=\"https://plaudit.pub/integration\" target=\"_blank\">تعليمات التكامل</a> للتفاصيل أو تواصل مع مسؤول Plaudit لديك."

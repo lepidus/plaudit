@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @file plugins/generic/plaudit/PlauditPlugin.inc.php
+ * @file plugins/generic/plaudit/PlauditPlugin.php
  *
  * Copyright (c) 2022 - 2024 Lepidus Tecnologia
  * Distributed under the GNU GPL v3. For full terms see LICENSE or https://www.gnu.org/licenses/gpl-3.0.txt.
@@ -76,8 +76,7 @@ class PlauditPlugin extends GenericPlugin
         }
 
         $router = $request->getRouter();
-        import('lib.pkp.classes.linkAction.request.AjaxModal');
-        $linkAction = new LinkAction(
+$linkAction = new LinkAction(
             'settings',
             new AjaxModal(
                 $router->url(

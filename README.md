@@ -4,10 +4,13 @@ This plugin adds the [Plaudit](https://plaudit.pub/) widget to the submission de
 
 An integration token is required in order for the plugin to work properly. [See how to get one](#obtaining-an-integration-token)
 
+## Version 2.0.1.0
+
 ## Compatibility
 
-The latest release of this plugin is compatible with the following PKP applications:
+This release has been tested with:
 
+* OJS 3.5.0
 * OJS 3.4.0
 * OPS 3.4.0
 * OMP 3.4.0
@@ -44,4 +47,8 @@ If you dont have one already, you can folow the [Plaudit instructions on how to 
 # License
 __This plugin is licensed under the GNU General Public License v3.0__
 
-__Copyright (c) 2022-2024 Lepidus Tecnologia__
+__Copyright (c) 2022-2025 Lepidus Tecnologia & Saddam__
+
+# Upgraded
+Fork of "lepidus/plaudit". Upgraded/maintained for OJS 3.4/3.5 by Saddam Al-Slfi.
+saddamalsalfi@qau.edu.ye, Queen Arwa University

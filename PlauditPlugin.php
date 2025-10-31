@@ -20,6 +20,9 @@ use PKP\plugins\Hook;
 use PKP\linkAction\LinkAction;
 use PKP\linkAction\request\AjaxModal;
 use PKP\core\JSONMessage;
+use Illuminate\Database\Migrations\Migration;
+use APP\plugins\generic\plaudit\classes\APIKeyEncryption;
+use APP\plugins\generic\plaudit\classes\migration\EncryptLegacyCredentials;
 use APP\plugins\generic\plaudit\form\PlauditSettingsForm;
 
 class PlauditPlugin extends GenericPlugin
@@ -51,6 +54,11 @@ class PlauditPlugin extends GenericPlugin
         return __('plugins.generic.plaudit.description');
     }
 
+    public function getInstallMigration(): Migration
+    {
+        return new EncryptLegacyCredentials();
+    }
+
     public function addSubmissionDetails($hookName, $params)
     {
         $templateMgr = $params[1];
@@ -60,6 +68,11 @@ class PlauditPlugin extends GenericPlugin
         $integrationToken = $this->getSetting($request->getContext()->getId(), 'integration_token');
 
         if ($integrationToken) {
+            $encrypter = new APIKeyEncryption();
+            $integrationToken = $encrypter->textIsEncrypted($integrationToken)
+                ? $encrypter->decryptString($integrationToken)
+                : $integrationToken;
+
             $templateMgr->assign('integrationToken', $integrationToken);
             $output .= $templateMgr->fetch($this->getTemplateResource('plauditWidget.tpl'));
         }

@@ -43,5 +43,3 @@ If you dont have one already, you can folow the [Plaudit instructions on how to 
 
 # License
 __This plugin is licensed under the GNU General Public License v3.0__
-
-__Copyright (c) 2022-2025 Lepidus Tecnologia__

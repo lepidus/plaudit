@@ -5,7 +5,7 @@ namespace APP\plugins\generic\plaudit\classes\migration;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Support\Facades\DB;
 use PKP\install\DowngradeNotSupportedException;
-use APP\plugins\generic\plaudit\classes\api\APIKeyEncryption;
+use APP\plugins\generic\plaudit\classes\APIKeyEncryption;
 
 class EncryptLegacyCredentials extends Migration
 {

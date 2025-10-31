@@ -20,6 +20,7 @@ use PKP\plugins\Hook;
 use PKP\linkAction\LinkAction;
 use PKP\linkAction\request\AjaxModal;
 use PKP\core\JSONMessage;
+use APP\plugins\generic\plaudit\classes\APIKeyEncryption;
 use APP\plugins\generic\plaudit\form\PlauditSettingsForm;
 
 class PlauditPlugin extends GenericPlugin
@@ -60,6 +61,11 @@ class PlauditPlugin extends GenericPlugin
         $integrationToken = $this->getSetting($request->getContext()->getId(), 'integration_token');
 
         if ($integrationToken) {
+            $encrypter = new APIKeyEncryption();
+            $integrationToken = $encrypter->textIsEncrypted($integrationToken)
+                ? $encrypter->decryptString($integrationToken)
+                : $integrationToken;
+
             $templateMgr->assign('integrationToken', $integrationToken);
             $output .= $templateMgr->fetch($this->getTemplateResource('plauditWidget.tpl'));
         }

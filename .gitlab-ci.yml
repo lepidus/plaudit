@@ -14,6 +14,14 @@ ojs_integration_tests:
   rules:
     - when: never
 
+ops_integration_tests:
+  rules:
+    - when: never
+
+omp_integration_tests:
+  rules:
+    - when: never
+
 .integration_tests_template:
   before_script:
     - sed -i 's/api_key_secret = ""/api_key_secret = "$API_KEY_SECRET"/' /var/www/$APPLICATION/config.inc.php

@@ -7,6 +7,8 @@ include:
     file:
       - 'templates/groups/pkp_plugin.yml'
       - 'templates/groups/ojs/cypress_tests.yml'
+      - 'templates/groups/ops/cypress_tests.yml'
+      - 'templates/groups/omp/cypress_tests.yml'
 
 ojs_integration_tests:
   rules:

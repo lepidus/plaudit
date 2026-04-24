@@ -3,12 +3,28 @@ variables:
 
 include:
   - project: 'documentacao-e-tarefas/modelosparaintegracaocontinua'
-    ref: main
+    ref: stable-3_5_0
     file:
       - 'templates/groups/pkp_plugin.yml'
       - 'templates/groups/ojs/cypress_tests.yml'
+      - 'templates/groups/ops/cypress_tests.yml'
+      - 'templates/groups/omp/cypress_tests.yml'
+  - project: 'documentacao-e-tarefas/modelosparaintegracaocontinua'
+    ref: stable-3_4_0
+    file:
+      - 'templates/groups/ojs/cypress_tests.yml'
+      - 'templates/groups/ops/cypress_tests.yml'
+      - 'templates/groups/omp/cypress_tests.yml'
 
 ojs_integration_tests:
+  rules:
+    - when: never
+
+ops_integration_tests:
+  rules:
+    - when: never
+
+omp_integration_tests:
   rules:
     - when: never
 

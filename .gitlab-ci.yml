@@ -1,5 +1,5 @@
 include:
   - project: 'documentacao-e-tarefas/modelosparaintegracaocontinua'
-    ref: main
+    ref: stable-3_3_0
     file:
       - 'templates/groups/pkp_plugin.yml'

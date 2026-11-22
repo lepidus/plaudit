@@ -3,6 +3,8 @@
 namespace APP\plugins\generic\plaudit\form;
 
 use PKP\form\Form;
+use PKP\form\validation\FormValidatorPost;
+use PKP\form\validation\FormValidatorCSRF;
 use APP\template\TemplateManager;
 
 class PlauditSettingsForm extends Form
@@ -15,6 +17,8 @@ class PlauditSettingsForm extends Form
         $this->contextId = $contextId;
         $this->plugin = $plugin;
         parent::__construct($plugin->getTemplateResource('settings.tpl'));
+        $this->addCheck(new FormValidatorPost($this));
+        $this->addCheck(new FormValidatorCSRF($this));
     }
 
     public function fetch($request, $template = null, $display = false)

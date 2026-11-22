@@ -7,3 +7,7 @@ include:
     file:
       - 'templates/groups/pkp_plugin.yml'
       - 'templates/groups/ojs/cypress_tests.yml'
+
+ojs_integration_tests:
+  before_script:
+    - printf '%s\n' '{"baseUrl":"http://localhost"}' > /var/www/ojs/cypress.env.json

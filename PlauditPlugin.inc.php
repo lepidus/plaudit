@@ -46,7 +46,7 @@ class PlauditPlugin extends GenericPlugin
     public function addSubmissionDetails($hookName, $params)
     {
         $templateMgr = $params[1];
-        $output =& $params[2];
+        $output = & $params[2];
 
         $request = Application::get()->getRequest();
         $integrationToken = $this->getSetting($request->getContext()->getId(), 'integration_token');

@@ -16,6 +16,7 @@ describe('Plaudit - Plugin setup', function () {
 
         cy.get('tr[id*="plauditplugin"] a.show_extras').click();
         cy.get('a[id*="plauditplugin-settings"]').click();
+        cy.get('#plauditSettingsForm input[name="csrfToken"]').should('have.length', 1);
         cy.get('input[name="integrationToken"]').clear().type(dummyIntegrationToken, { delay: 0 });
         cy.get('#plauditSettingsForm button:contains("Save")').click();
         cy.waitJQuery();

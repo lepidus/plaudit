@@ -3,6 +3,8 @@
 namespace APP\plugins\generic\plaudit\form;
 
 use PKP\form\Form;
+use PKP\form\validation\FormValidatorPost;
+use PKP\form\validation\FormValidatorCSRF;
 use APP\template\TemplateManager;
 use APP\plugins\generic\plaudit\classes\APIKeyEncryption;
 
@@ -19,6 +21,8 @@ class PlauditSettingsForm extends Form
         $this->encrypter = new APIKeyEncryption();
 
         parent::__construct($plugin->getTemplateResource('settings.tpl'));
+        $this->addCheck(new FormValidatorPost($this));
+        $this->addCheck(new FormValidatorCSRF($this));
     }
 
     public function fetch($request, $template = null, $display = false)

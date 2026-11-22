@@ -10,7 +10,7 @@ class PlauditSettingsFormTest extends PKPTestCase
 {
     public function testSettingsRequireASessionConfirmedPost(): void
     {
-        $plugin = new class {
+        $plugin = new class () {
             public function getTemplateResource($name)
             {
                 return $name;
